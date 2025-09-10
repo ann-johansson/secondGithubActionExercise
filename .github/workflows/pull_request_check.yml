@@ -29,25 +29,25 @@ jobs:
         run: |
           curl -H "Content-Type: application/json" \
             -X POST \
-            -d '{
-              "embeds": [{
-                "title": "🍂 .NET Build Succeeded! 🍂 ✅",
-                "description": "🍂Yes! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` by Ann, completed successfully.🍂",
-                "color": 3066993
+            -d "{
+              \"embeds\": [{
+                \"title\": \"🍂 .NET Build Succeeded! 🍂 ✅\",
+                \"description\": \"🍂Yes! The .NET build for PR #${{ github.event.pull_request.number }} on branch \`${{ github.head_ref }}\` by Ann, completed successfully.🍂\",
+                \"color\": 3066993
               }]
-            }' \
+            }" \
             ${{ secrets.DISCORD_HOOK }}
-            
-        - name: Notify Discord on Failure (Autumn Leaves & Cross)
+
+      - name: Notify Discord on Failure
         if: failure()
         run: |
           curl -H "Content-Type: application/json" \
             -X POST \
-            -d '{
-              "embeds": [{
-                "title": "🍂 .NET Build Failed 🍂 ❌",
-                "description": "🍂Oh no! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` by Ann, failed. 🍂",
-                "color": 15158332
+            -d "{
+              \"embeds\": [{
+                \"title\": \"🍂 .NET Build Failed 🍂 ❌\",
+                \"description\": \"🍂Oh no! The .NET build for PR #${{ github.event.pull_request.number }} on branch \`${{ github.head_ref }}\` by Ann, failed. 🍂\",
+                \"color\": 15158332
               }]
-            }' \
+            }" \
             ${{ secrets.DISCORD_HOOK }}
