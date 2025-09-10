@@ -23,3 +23,31 @@ jobs:
 
       - name: Build solution
         run: dotnet build --no-restore --configuration Release
+
+      - name: Notify Discord on Success
+        if: success()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -X POST \
+            -d '{
+              "embeds": [{
+                "title": "🍂 .NET Build Succeeded! 🍂 ✅",
+                "description": "🍂Yes! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` completed successfully.🍂",
+                "color": 3066993
+              }]
+            }' \
+            https://discord.com/api/webhooks/your-real-webhook-here
+
+      - name: Notify Discord on Failure (Autumn Leaves & Cross)
+        if: failure()
+        run: |
+          curl -H "Content-Type: application/json" \
+            -X POST \
+            -d '{
+              "embeds": [{
+                "title": "🍂 .NET Build Failed 🍂 ❌",
+                "description": "🍂Oh no! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` failed. 🍂",
+                "color": 15158332
+              }]
+            }' \
+            https://discord.com/api/webhooks/your-real-webhook-here
