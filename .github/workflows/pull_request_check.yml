@@ -32,7 +32,7 @@ jobs:
             -d '{
               "embeds": [{
                 "title": "🍂 .NET Build Succeeded! 🍂 ✅",
-                "description": "🍂Yes! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` completed successfully.🍂",
+                "description": "🍂Yes! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` by Ann, completed successfully.🍂",
                 "color": 3066993
               }]
             }' \
@@ -45,7 +45,7 @@ jobs:
             -d '{
               "embeds": [{
                 "title": "🍂 .NET Build Failed 🍂 ❌",
-                "description": "🍂Oh no! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` failed. 🍂",
+                "description": "🍂Oh no! The .NET build for PR #${{ github.event.pull_request.number }} on branch `${{ github.head_ref }}` by Ann, failed. 🍂",
                 "color": 15158332
               }]
             }' \
