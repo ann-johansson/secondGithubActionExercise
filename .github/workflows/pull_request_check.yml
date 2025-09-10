@@ -36,8 +36,7 @@ jobs:
                 "color": 3066993
               }]
             }' \
-            https://discord.com/api/webhooks/your-real-webhook-here
-
+            https://discord.com/api/webhooks/1414125419610771466/Xkb9ADuwivDV3vwW0fl-pjpA_bSoq7GRFHfhTucFBAsoAx7TFNW7XPGArLLQESICpfvL
       - name: Notify Discord on Failure (Autumn Leaves & Cross)
         if: failure()
         run: |
@@ -50,4 +49,4 @@ jobs:
                 "color": 15158332
               }]
             }' \
-            https://discord.com/api/webhooks/your-real-webhook-here
+            https://discord.com/api/webhooks/1414125419610771466/Xkb9ADuwivDV3vwW0fl-pjpA_bSoq7GRFHfhTucFBAsoAx7TFNW7XPGArLLQESICpfvL
